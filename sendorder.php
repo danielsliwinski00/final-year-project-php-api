@@ -63,7 +63,7 @@ if (isset($_POST)) {
         }
     }
     if ($dish != '') {
-        $sql = "INSERT INTO `orders` (orderid, `dish`, `tablenumber`, `quantity`, `time`) VALUES ('$orderid', '$dish', '$table', 1, '$timeFinal')";
+        $sql = "INSERT INTO `orders` (orderid, `dish`, `tablenumber`, `time`) VALUES ('$orderid', '$dish', '$table', '$timeFinal')";
         if (mysqli_query($con, $sql)) {
             $return = array('orderid' => $orderid);
             echo json_encode($return);
