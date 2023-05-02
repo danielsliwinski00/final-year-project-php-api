@@ -30,7 +30,6 @@ if (isset($_POST)) {
     $text = "";
     $dish = '';
     $available = 1;
-    //$time = date('Y-m-d H:i:sa');
 
     $time = new DateTime("now");
     $time->modify('-1 hour');

@@ -9,7 +9,7 @@
         echo ""; //used this whilst coding to find out if it has connected
     }
 
-    $items = "SELECT id, dish, description, price, special, available, quantity FROM menu";
+    $items = "SELECT id, dish, description, price, special, available, quantity, type FROM menu";
     $result = $con->query($items);
 
     $menuItems = array();
@@ -24,6 +24,7 @@
             $special = $row['special'];
             $available = $row['available'];
             $quantity = $row['quantity'];
+            $type = $row['type'];
             
             $menuItems[$i]['id'] = $itemid;
             $menuItems[$i]['dish'] = $dish;
@@ -32,6 +33,7 @@
             $menuItems[$i]['special'] = $special;
             $menuItems[$i]['available'] = $available;
             $menuItems[$i]['quantity'] = $quantity;
+            $menuItems[$i]['type'] = $type;
             
             $i++;
         }
@@ -39,5 +41,5 @@
     } else {
         echo "0 results";
     }
-    $con->close();
-    ?>
+$con->close();
+?>
