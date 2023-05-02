@@ -70,4 +70,6 @@ And
 › Port 19006 is
 ? Use port 19007 instead? » (Y/n)
 ```
-Press y for both  
+Press y for both 
+
+Enjoy the project!
