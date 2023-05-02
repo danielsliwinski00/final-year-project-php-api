@@ -71,6 +71,12 @@ And
 › Port 19006 is
 ? Use port 19007 instead? » (Y/n)
 ```
-Press y for both 
+Press y for both  
 
-Enjoy the project!
+To create QR codes to be used with the project use any free code generator online  
+e.g. https://www.qr-code-generator.com/  
+The link you want to use will be your local ip with the port mentioned in npm run web:
+192.168.1.102:19006 + /table=* *tablenumber* *, e.g. 
+192.168.1.102:19006/table=8
+
+Scan the code on your mobile device and enjoy the project!
