@@ -26,10 +26,10 @@ dish - longtext
 tablenumber - int  
 time - datetime  
 
-you will need to import a csv of your menu into the menu table,  
-here is an example file you can download as a csv:  
-https://drive.google.com/file/d/1WJnDqMD_IkGQDY6Z1esgs7M3FGGaxN7I/view?usp=sharing  
-**REMEMBER TO SKIP THE FIRST QUERY**
+you will need to import a csv of your menu into the menu table,    
+here is an example file you can download as a csv:    
+https://drive.google.com/file/d/1WJnDqMD_IkGQDY6Z1esgs7M3FGGaxN7I/view?usp=sharing    
+**REMEMBER TO SKIP THE FIRST QUERY**  
 
 The API files need to git cloned into htdocs (XAMPP) via  
 
@@ -73,10 +73,10 @@ And
 ```
 Press y for both  
 
-To create QR codes to be used with the project use any free code generator online  
-e.g. https://www.qr-code-generator.com/  
-The link you want to use will be your local ip with the port mentioned in npm run web:
-192.168.1.102:19006 + /table=* *tablenumber* *, e.g. 
-192.168.1.102:19006/table=8
+To create QR codes to be used with the project use any free code generator online    
+e.g. https://www.qr-code-generator.com/   
+The link you want to use will be your local ip with the port mentioned in npm run web:  
+192.168.1.102:19006 + /table=* *tablenumber* *, e.g.   
+192.168.1.102:19006/table=8  
 
 Scan the code on your mobile device and enjoy the project!
