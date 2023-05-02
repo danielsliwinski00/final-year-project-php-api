@@ -1,5 +1,9 @@
 This repo is for the API for the project and it includes instructions for use
 
+The other repos:  
+Ordering system: https://github.com/danielsliwinski00/final-year-project-react-native  
+Employee system: https://github.com/danielsliwinski00/final-year-project-employee-app  
+
 This Project requires XAMPP to be used:  
 https://www.apachefriends.org/download.html  
 Run xampp-control.exe,  
