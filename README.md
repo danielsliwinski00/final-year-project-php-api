@@ -29,6 +29,7 @@ time - datetime
 you will need to import a csv of your menu into the menu table,  
 here is an example file you can download as a csv:  
 https://drive.google.com/file/d/1WJnDqMD_IkGQDY6Z1esgs7M3FGGaxN7I/view?usp=sharing  
+**REMEMBER TO SKIP THE FIRST QUERY**
 
 The API files need to git cloned into htdocs (XAMPP) via  
 
