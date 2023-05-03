@@ -37,7 +37,7 @@ https://drive.google.com/file/d/1WJnDqMD_IkGQDY6Z1esgs7M3FGGaxN7I/view?usp=shari
 
 The API files need to git cloned into htdocs (XAMPP) via  
 
-(Project requires **ALL** fetch requests to be changed to localhost or equivalent (with port) e.g. 192.168.1.102:8080  
+(Project requires **ALL** fetch requests to be changed to localhost or equivalent (with port if needed) e.g. 192.168.1.102:8080  
 ```
 return fetch("http://192.168.1.102:8080/api/sendorder.php",
 ```
