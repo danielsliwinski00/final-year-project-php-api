@@ -18,7 +18,7 @@ in the menu table you will need 8 columns:
 id - int  
 dish - text  
 description - longtext  
-price - double  
+price - double (price must not have decimals because of javascript)  
 quantity - int  
 special - tinyint  
 available - tinyint  
@@ -33,7 +33,7 @@ time - datetime
 you will need to import a csv of your menu into the menu table,    
 here is an example file you can download as a csv:    
 https://drive.google.com/file/d/1WJnDqMD_IkGQDY6Z1esgs7M3FGGaxN7I/view?usp=sharing    
-**REMEMBER TO SKIP THE FIRST QUERY**  
+**REMEMBER TO SKIP THE FIRST QUERY IF USING THIS FILE**  
 
 The API files need to git cloned into htdocs (XAMPP) via  
 
