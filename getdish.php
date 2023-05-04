@@ -1,8 +1,17 @@
 <?php
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
+$method = $_SERVER['REQUEST_METHOD'];
+if($method == 'OPTIONS'){
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization');
+        header('HTTP/1.1 200 OK');
+        die();
+}
 
-$con = mysqli_connect('localhost', 'root', '', 'restaurant'); //connecting
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization');
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+
+$con = mysqli_connect('database-1.ctbs9a3wffrz.eu-north-1.rds.amazonaws.com:3306', 'admin', 'password', 'restaurant'); //connecting
 if (!$con) {
     echo ""; //used this whilst coding to find out if its not connected
 } else {
@@ -17,12 +26,7 @@ if (isset($_POST)) {
         $dishID = $objects;
     }
 
-    $text = "";
-    $dish = '';
-    $quantity = '';
-    $time = date('Y-m-d H:i:sa');
-
-    $sql = "SELECT id, dish, description, price, special, available, quantity FROM menu WHERE id = $dishID";
+    $sql = "SELECT id, dish, description, price, special, available, quantity, type FROM menu WHERE id = $dishID";
 
     if (mysqli_query($con, $sql)) {
         $result = $con->query($sql);
@@ -37,6 +41,7 @@ if (isset($_POST)) {
                 $special = $row['special'];
                 $available = $row['available'];
                 $quantity = $row['quantity'];
+                $type = $row['type'];
 
                 $menuItems[$i]['id'] = $itemid;
                 $menuItems[$i]['dish'] = $dish;
@@ -45,6 +50,7 @@ if (isset($_POST)) {
                 $menuItems[$i]['special'] = $special;
                 $menuItems[$i]['available'] = $available;
                 $menuItems[$i]['quantity'] = $quantity;
+                $menuItems[$i]['type'] = $type;
 
                 $i++;
             }

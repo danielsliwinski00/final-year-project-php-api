@@ -2,7 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
 
-$con = mysqli_connect('localhost', 'root', '', 'restaurant'); //connecting
+$con = mysqli_connect('database-1.ctbs9a3wffrz.eu-north-1.rds.amazonaws.com:3306', 'admin', 'password', 'restaurant'); //connecting
 if (!$con) {
     echo ""; //used this whilst coding to find out if its not connected
 } else {
@@ -34,7 +34,7 @@ if (isset($_POST)) {
     $quantity = 0;
     $special = 0;
     $available = 0;
-    //$time = date('Y-m-d H:i:sa');
+    $type = 0;
 
     foreach ($decoded as $objs) {
         $dish = $objs['dish'];
@@ -43,10 +43,11 @@ if (isset($_POST)) {
         $quantity = $objs['quantity'];
         $special = $objs['special'];
         $available = $objs['available'];
+        $type = $objs['type'];
     }
 
     if ($dish != '') {
-        $sql = "INSERT INTO `menu` (id, `dish`, `price`, `description`, `quantity`, `available`, `special` ) VALUES ('$dishid', '$dish', '$price', '$description', '$quantity', '$available','$special')";
+        $sql = "INSERT INTO `menu` (id, `dish`, `price`, `description`, `quantity`, `available`, `special`, `type` ) VALUES ('$dishid', '$dish', '$price', '$description', '$quantity', '$available','$special', '$type')";
         if (mysqli_query($con, $sql)) {
             echo 'success';
         } else {

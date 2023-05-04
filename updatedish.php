@@ -1,8 +1,17 @@
 <?php
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
+$method = $_SERVER['REQUEST_METHOD'];
+if($method == 'OPTIONS'){
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization');
+        header('HTTP/1.1 200 OK');
+        die();
+}
 
-$con = mysqli_connect('localhost', 'root', '', 'restaurant'); //connecting
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization');
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+
+$con = mysqli_connect('database-1.ctbs9a3wffrz.eu-north-1.rds.amazonaws.com:3306', 'admin', 'password', 'restaurant'); //connecting
 if (!$con) {
     echo ""; //used this whilst coding to find out if its not connected
 } else {
@@ -20,7 +29,7 @@ if (isset($_POST)) {
     $quantity = 0;
     $special = 0;
     $available = 0;
-    //$time = date('Y-m-d H:i:sa');
+    $type = 0;
 
     foreach($decoded as $objs){
         $id = $objs['id'];
@@ -30,25 +39,11 @@ if (isset($_POST)) {
         $quantity = $objs['quantity'];
         $special = $objs['special'];
         $available = $objs['available'];
+        $type = $objs['type'];
     }
 
-    /*
-    $id = intval($id);
-    echo $id." ".$dish." ".$price." ".$description." ".$quantity." ".$special." ".$available;          
-    foreach ($decoded as $objects) {
-    for ($i = 0; $i < $objects; $i++) {
-    $id = $dishes['id'];
-    $dish = $dishes['dish'];
-    $price = $dishes['price'];
-    $description = $dishes['description'];
-    $quantity = $dishes['quantity'];
-    $special = $dishes['special'];
-    $available = $dishes['available'];
-    }
-    
-    }*/
     if ($dish != '') {
-        $sql = "UPDATE menu SET dish = '$dish', price = $price, description = '$description', quantity = $quantity, special = $special, available = $available WHERE id = $id";
+        $sql = "UPDATE menu SET dish = '$dish', price = $price, description = '$description', quantity = $quantity, special = $special, available = $available, type = $type WHERE id = $id";
         if (mysqli_query($con, $sql)) {
             echo 'success';
         } else {

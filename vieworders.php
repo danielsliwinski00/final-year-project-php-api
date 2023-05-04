@@ -2,14 +2,14 @@
     header('Access-Control-Allow-Origin: *');
     header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
 
-    $con = mysqli_connect('localhost', 'root', '', 'restaurant'); //connecting
+    $con = mysqli_connect('database-1.ctbs9a3wffrz.eu-north-1.rds.amazonaws.com:3306', 'admin', 'password', 'restaurant'); //connecting
     if (!$con) {
         echo ""; //used this whilst coding to find out if its not connected
     } else {
         echo ""; //used this whilst coding to find out if it has connected
     }
 
-    $items = "SELECT orderid, dish, tablenumber, time, quantity FROM orders";
+    $items = "SELECT orderid, dish, tablenumber, time FROM orders";
     $result = $con->query($items);
 
     $orders = array();
@@ -21,13 +21,11 @@
             $dish = $row["dish"];
             $tablenumber = $row["tablenumber"];
             $time = $row["time"];
-            $quantity = $row['quantity'];
 
             $orders[$i]['orderid'] = $orderid;
             $orders[$i]['dish'] = $dish;
             $orders[$i]['tablenumber'] = $tablenumber;
             $orders[$i]['time'] = $time;
-            $orders[$i]['quantity'] = $quantity;
             
             $i++;
         }
