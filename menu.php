@@ -4,7 +4,7 @@
     header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
     
-    $con = mysqli_connect('database-1.ctbs9a3wffrz.eu-north-1.rds.amazonaws.com:3306', 'admin', 'password', 'restaurant'); //connecting
+    $con = mysqli_connect('localhost', 'root', '', 'restaurant'); //connecting
     if (!$con) {
         echo ""; //used this whilst coding to find out if its not connected
     } else {
